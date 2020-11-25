@@ -4,8 +4,6 @@
   <test name="Test" parallel="classes" thread-count="3">
     <classes>
       <class name="com.weatherforecast.testcases.CompareTemp"/>
-      <class name="com.weatherforecast.testcases.GetCityTempAPI"/>
-      <class name="com.weatherforecast.testcases.SearchCityTemp"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
