@@ -5,11 +5,13 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.Select;
+
+import com.weatherforcast.utilities.ReadProperty;
 
 public class HomePage {
 	
 	public WebDriver driver;
+	ReadProperty RP = new ReadProperty();
 	
 	public HomePage(WebDriver ldriver) {
 		this.driver = ldriver;

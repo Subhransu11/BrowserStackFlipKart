@@ -1,25 +1,29 @@
 package com.weatherforecast.testcases;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import java.util.Properties;
 
-import com.weatherforcast.utilities.BrowserFactory;
 import com.weatherforcast.utilities.ExcelUtility;
-import com.weatherforecast.apis.TempAPI;
-import com.weatherforecast.pages.HomePage;
-import com.weatherforecast.pages.WeatherPage;
+import com.weatherforcast.utilities.ReadProperty;
 
 public class CompareTemp {
 
 	public WebDriver driver;
-//	BrowserFactory bf = new BrowserFactory();
-//	TempAPI ta = new TempAPI();
+	Properties propConfig;
+	ReadProperty RP = new ReadProperty();
 	ExcelUtility EU = new ExcelUtility();
 	GetCityTempAPI TempAPI = new GetCityTempAPI();
 	SearchCityTemp TempAPP = new SearchCityTemp();
 
+	@BeforeClass
+	public void setUp() {
+		propConfig = RP.readConfig();
+	}
+	
+//	Input from Excel -> External Files>>WeatherForecast.xlsx
 	@DataProvider(name = "Temperature")
 	public Object[][] Authentication() throws Exception {
 		Object[][] testObjArray = EU.readExcel();
@@ -29,25 +33,26 @@ public class CompareTemp {
 	@Test(dataProvider = "Temperature")
 	public void compareTemp(String City) {		
 		String city = City;
-		String apiID = "40c896c78b2f3b04ae37bf8699dc07a1";
-		String url = "https://weather.com/";
-		String browserName = "Chrome";
-//		Float temp = ta.tempAPI(city, apiID);
-//		int tempC = (int) (temp - 273);
+		String apiID = propConfig.getProperty("ApiID");
+		String url = propConfig.getProperty("URL");
+		String browserName = propConfig.getProperty("BrowserName");
+		
+//		call function to get temperature of city from API
 		int tempC = TempAPI.getCityTempAPI(city, apiID);
-		System.out.println("Temperature from API is : " + tempC + " C");
-//		driver = bf.startBrowser(driver, "Chrome", "https://weather.com/");
-//		HomePage hp = PageFactory.initElements(driver, HomePage.class);
-//		hp.serachCity(city);
-//		WeatherPage WP = PageFactory.initElements(driver, WeatherPage.class);
-//		String tempAPP = WP.getTemperature(city);
+		System.out.println("Temperature from API is : " + tempC + "°C");
+		
+//		call function to get temperature of city from Weather Application
 		int tempA = TempAPP.searchCityTemp(driver, browserName, url, city);
+		System.out.println("Temperature from Application is : " + tempA + "°C");
+		
 		int diff = tempC - tempA;
 		diff = (diff < 0) ? -diff : diff;
 		System.out.println("Difference between temperature from Application and API is : " + diff);
 
-		if (diff < 3) {
+		int diffLimit = 3;
+		if (diff < diffLimit) {
 			System.out.println("Difference is negligible --> ");
+			
 		} else {
 			System.out.println("Diffence is there between temperatures from both sources");
 		}
