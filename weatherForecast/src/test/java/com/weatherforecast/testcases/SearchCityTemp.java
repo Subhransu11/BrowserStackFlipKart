@@ -13,14 +13,17 @@ public class SearchCityTemp {
 	BrowserFactory bf = new BrowserFactory();
 
 	@Test
-	public void searchCityTemp() {
-		driver = bf.startBrowser(driver, "Chrome", "https://weather.com/");
+	public int searchCityTemp(WebDriver driver, String browserName, String url, String city) {
+		driver = bf.startBrowser(driver, browserName, url);
 		HomePage hp = PageFactory.initElements(driver, HomePage.class);
-		hp.serachCity("Bhubaneswar");
+		hp.serachCity(city);
 		WeatherPage WP = PageFactory.initElements(driver, WeatherPage.class);
-		String temp = WP.getTemperature("Bhubaneswar");
-		System.out.println(temp);
+		String temp = WP.getTemperature(city);
+		String tempAPP = temp.replaceAll("°", "");
+		int tempA = Integer.parseInt(tempAPP);
+		System.out.println(tempA);
 		bf.closeBrowser(driver);
+		return tempA;
 	}
 
 }

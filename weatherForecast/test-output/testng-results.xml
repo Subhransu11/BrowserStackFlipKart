@@ -1,25 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-11-24T03:53:29Z" name="Suite" finished-at="2020-11-24T03:54:30Z" duration-ms="61046">
+  <suite started-at="2020-11-25T03:44:55Z" name="Default suite" finished-at="2020-11-25T03:46:01Z" duration-ms="65332">
     <groups>
     </groups>
-    <test started-at="2020-11-24T03:53:29Z" name="Test" finished-at="2020-11-24T03:54:30Z" duration-ms="61046">
-      <class name="com.weatherforecast.testcases.SearchCityTemp">
-        <test-method signature="searchCityTemp()[pri:0, instance:com.weatherforecast.testcases.SearchCityTemp@402c4085]" started-at="2020-11-24T03:53:29Z" name="searchCityTemp" finished-at="2020-11-24T03:53:48Z" duration-ms="18900" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchCityTemp -->
-      </class> <!-- com.weatherforecast.testcases.SearchCityTemp -->
-      <class name="com.weatherforecast.testcases.GetCityTempAPI">
-        <test-method signature="getCityTempAPI()[pri:0, instance:com.weatherforecast.testcases.GetCityTempAPI@57a78e3]" started-at="2020-11-24T03:53:29Z" name="getCityTempAPI" finished-at="2020-11-24T03:53:34Z" duration-ms="4237" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getCityTempAPI -->
-      </class> <!-- com.weatherforecast.testcases.GetCityTempAPI -->
+    <test started-at="2020-11-25T03:44:55Z" name="Default test" finished-at="2020-11-25T03:46:01Z" duration-ms="65332">
       <class name="com.weatherforecast.testcases.CompareTemp">
-        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@4681c175]" started-at="2020-11-24T03:53:30Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-24T03:53:51Z" duration-ms="21116" status="PASS">
+        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@16eb3ea3]" started-at="2020-11-25T03:44:56Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-25T03:45:18Z" duration-ms="21891" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -30,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- compareTemp -->
-        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@4681c175]" started-at="2020-11-24T03:53:51Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-24T03:54:13Z" duration-ms="21939" status="PASS">
+        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@16eb3ea3]" started-at="2020-11-25T03:45:18Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-25T03:45:40Z" duration-ms="21764" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -41,7 +29,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- compareTemp -->
-        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@4681c175]" started-at="2020-11-24T03:54:13Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-24T03:54:30Z" duration-ms="16959" status="PASS">
+        <test-method signature="compareTemp(java.lang.String)[pri:0, instance:com.weatherforecast.testcases.CompareTemp@16eb3ea3]" started-at="2020-11-25T03:45:40Z" name="compareTemp" data-provider="Temperature" finished-at="2020-11-25T03:46:01Z" duration-ms="20662" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -53,6 +41,6 @@
           </reporter-output>
         </test-method> <!-- compareTemp -->
       </class> <!-- com.weatherforecast.testcases.CompareTemp -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
